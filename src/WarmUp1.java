@@ -142,7 +142,94 @@ public class WarmUp1 {
         }
         return (count >= 1 && count <= 3);
     }
+// ---------------------------------------------------------------------------------------------------------
+
+    /*Ex.11 Given a non-empty string and an int N, return the string made starting with char 0, and then every Nth
+    char of the string. So if N is 3, use char 0, 3, 6, ... and so on. N is 1 or more.
+everyNth("Miracle", 2) → "Mrce"
+everyNth("abcdefg", 2) → "aceg"*/
+
+    public static String everyNth(String str, int n) {
+        String result = "";
+        for (int i = 0; i < str.length(); i = i + n) {
+            result = result + str.charAt(i);
+        }
+        return result;
+    }
+    // ---------------------------------------------------------------------------------------------------------
+
+/* Ex.12 We have two monkeys, a and b, and the parameters aSmile and bSmile indicate if each is smiling.
+We are in trouble if they are both smiling or if neither of them is smiling. Return true if we are in trouble.
+
+monkeyTrouble(true, true) → true
+monkeyTrouble(false, false) → true*/
+
+    public static boolean monkeyTrouble(boolean aSmile, boolean bSmile) {
+        return (aSmile == bSmile);
+    }
+
+    // ---------------------------------------------------------------------------------------------------------
+
+    /* Ex. 13 We have a loud talking parrot. The "hour" parameter is the current hour time in the range 0..23. We are in trouble if the parrot is talking and the hour is before 7 or after 20. Return true if we are in trouble.
+
+parrotTrouble(true, 6) → true
+parrotTrouble(true, 7) → false */
+    public static boolean parrotTrouble(boolean talking, int hour) {
+        return (talking && (hour < 7 || hour > 20));
+    }
+
+    // ---------------------------------------------------------------------------------------------------------
+
+    /* Ex.14 Given 2 int values, return true if one is negative and one is positive. Except if the parameter "negative" is true, then return true only if both are negative.
+
+posNeg(1, -1, false) → true
+posNeg(-1, 1, false) → true */
+    public static boolean posNeg(int a, int b, boolean negative) {
+        if (negative) {
+            return (a < 0 && b < 0);
+        } else {
+            return ((a < 0 && b > 0) || ((a > 0 && b < 0)));
+        }
+    }
+
+// ---------------------------------------------------------------------------------------------------------
+
+    /* Ex. 15 Given a string, return a new string where the first and last chars have been exchanged.
+
+frontBack("code") → "eodc"
+frontBack("a") → "a" */
+    public static String frontBack(String str) {
+        if (str.length() <= 1) {
+            return str;
+        }
+        String mid = str.substring(1, str.length() - 1);
+        // last + mid + first
+        return str.charAt(str.length() - 1) + mid + str.charAt(0);
+    }
+
+    // ---------------------------------------------------------------------------------------------------------
+
+    /* Ex. 16 Return true if the given non-negative number is a multiple of 3 or a multiple of 5. Use the % "mod" operator
+
+or35(3) → true
+or35(10) → true */
+    public static boolean or35(int n) {
+        return (n % 3 == 0 || n % 5 == 0);
+    }
+
+    // ---------------------------------------------------------------------------------------------------------
+
+    /* Ex. 17 Given two temperatures, return true if one is less than 0 and the other is greater than 100.
+
+icyHot(120, -1) → true
+icyHot(-1, 120) → true */
+
+    public static boolean icyHot(int temp1, int temp2) {
+        return ((temp1 < 0 && temp2 > 100) || (temp1 > 100 && temp2 < 0));
+    }
 }
+
+
 
 
 
